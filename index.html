@@ -3,32 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulta — Native macOS Agent Supervisor with Global Search</title>
-  <meta name="description" content="A native macOS app to supervise, search, and manage your Claude Code and AI coding agents. Menu bar, Spotlight, keyboard-first. Search everything instantly.">
+  <title>Simulta — Orchestrate Agentic AI at Scale</title>
+  <meta name="description" content="Native macOS app to run, visualize, and manage dozens of AI agents simultaneously. Alt-Tab between agent windows, see live work visualizations, orchestrate at scale.">
+  <meta property="og:title" content="Simulta — Orchestrate Agentic AI at Scale">
+  <meta property="og:description" content="Native macOS app. Alt-Tab for AI agents. Live visualizations. Manage dozens of workflows simultaneously.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://simulta.app">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Nav -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#" class="logo">
         <span class="logo-icon">⚡</span>
         <span class="logo-text">Simulta</span>
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
+        <a href="#how-it-works">How It Works</a>
         <a href="#features">Features</a>
-        <a href="#search">Search</a>
+        <a href="#visualizations">Visualizations</a>
         <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
       </div>
       <div class="nav-actions">
-        <a href="#pricing" class="btn btn-sm btn-primary">Get Started</a>
+        <a href="#pricing" class="btn btn-sm btn-primary">Download for macOS</a>
       </div>
-      <button class="mobile-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <button class="mobile-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
       </button>
     </div>
@@ -36,94 +40,247 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container">
-      <div class="badge">Native macOS App</div>
-      <h1>Your AI agents.<br>One native app.<br><span class="gradient-text">Searchable.</span></h1>
-      <p class="hero-sub">Simulta is a native macOS supervisor for Claude Code, Codex, and Gemini agents. Menu bar presence, native notifications, keyboard-first UX, and the global search that's been missing.</p>
-      <div class="hero-actions">
-        <a href="#pricing" class="btn btn-primary btn-lg">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Download for macOS
-        </a>
-        <a href="#features" class="btn btn-ghost btn-lg">See what's inside</a>
-      </div>
-      <p class="hero-note">macOS 14+ &middot; Apple Silicon & Intel &middot; Free trial, no card required</p>
-    </div>
-    <div class="hero-visual">
-      <div class="window-frame">
-        <div class="window-bar">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-          <span class="window-title">Simulta</span>
+    <div class="hero-bg-grid"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Native macOS &middot; Apple Silicon
         </div>
-        <div class="window-content">
-          <div class="mock-sidebar">
-            <div class="mock-search-bar">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-              <span>Search all sessions...</span>
-            </div>
-            <div class="mock-filter-bar">
-              <span class="mock-filter active">All</span>
-              <span class="mock-filter">Inbox</span>
-              <span class="mock-filter">Active</span>
-              <span class="mock-filter">Starred</span>
-            </div>
-            <div class="mock-session active">
-              <span class="mock-status green"></span>
-              <div>
-                <div class="mock-title">Auth refactor</div>
-                <div class="mock-meta"><span class="mock-tag orange">Claude</span> my-saas-app</div>
+        <h1>Run <span class="gradient-text">50 AI agents</span><br>like switching tabs.</h1>
+        <p class="hero-sub">Simulta is a native macOS app that lets you orchestrate dozens of agentic AI workflows simultaneously. Alt-Tab between agent windows. See live HTML visualizations of work in progress. Ship 10x faster.</p>
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            Download for macOS
+          </a>
+          <a href="#how-it-works" class="btn btn-ghost btn-lg">
+            Watch demo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <p class="hero-note">macOS 14+ &middot; Free trial &middot; No card required</p>
+      </div>
+      <div class="hero-visual">
+        <canvas id="heroCanvas" width="700" height="500"></canvas>
+        <div class="hero-visual-overlay">
+          <div class="agent-count-badge">
+            <span class="agent-count" id="agentCount">0</span>
+            <span class="agent-label">agents active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ticker -->
+  <section class="ticker-bar">
+    <div class="ticker-track">
+      <span class="ticker-item">Claude Code</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">Codex CLI</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">Gemini CLI</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">OpenCode</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">Aider</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">Custom Agents</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">Any CLI Tool</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">Claude Code</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">Codex CLI</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">Gemini CLI</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">OpenCode</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">Aider</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">Custom Agents</span>
+      <span class="ticker-sep">&middot;</span>
+      <span class="ticker-item">Any CLI Tool</span>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Concurrent agents</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">&lt;16ms</div>
+          <div class="stat-label">Window switch time</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Native</div>
+          <div class="stat-label">SwiftUI, zero Electron</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Live</div>
+          <div class="stat-label">HTML/JS visualizations</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works — Alt-Tab -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">How It Works</div>
+        <h2>Alt-Tab, but for<br><span class="gradient-text">AI agents.</span></h2>
+        <p class="section-sub">Each agent gets its own window. Switch between them instantly — just like switching apps on macOS. No tabs, no terminal multiplexers, no scrolling.</p>
+      </div>
+
+      <div class="alttab-demo">
+        <div class="alttab-strip" id="alttabStrip">
+          <div class="alttab-window active" data-agent="auth">
+            <div class="alttab-preview">
+              <div class="mini-window">
+                <div class="mini-bar"><span class="mini-dot r"></span><span class="mini-dot y"></span><span class="mini-dot g"></span></div>
+                <div class="mini-content">
+                  <div class="mini-line w60"></div>
+                  <div class="mini-line w80 accent"></div>
+                  <div class="mini-line w40"></div>
+                  <div class="mini-line w70 green"></div>
+                </div>
               </div>
-              <span class="mock-time">2m</span>
             </div>
-            <div class="mock-session">
-              <span class="mock-status orange"></span>
-              <div>
-                <div class="mock-title">Fix checkout flow</div>
-                <div class="mock-meta"><span class="mock-tag orange">Claude</span> e-commerce</div>
-              </div>
-              <span class="mock-time">8m</span>
-            </div>
-            <div class="mock-session">
-              <span class="mock-status gray"></span>
-              <div>
-                <div class="mock-title">DB migration script</div>
-                <div class="mock-meta"><span class="mock-tag green">Codex</span> backend-api</div>
-              </div>
-              <span class="mock-time">1h</span>
-            </div>
-            <div class="mock-session">
-              <span class="mock-status blue"></span>
-              <div>
-                <div class="mock-title">Landing page redesign</div>
-                <div class="mock-meta"><span class="mock-tag blue">Gemini</span> marketing</div>
-              </div>
-              <span class="mock-time">3h</span>
+            <div class="alttab-label">
+              <span class="alttab-status running"></span>
+              Auth Refactor
             </div>
           </div>
-          <div class="mock-detail">
-            <div class="mock-detail-header">
-              <strong>Auth refactor</strong>
-              <span class="mock-detail-meta">Claude &middot; my-saas-app &middot; Active</span>
-            </div>
-            <div class="mock-messages">
-              <div class="mock-msg user">
-                <div class="mock-msg-avatar blue">Y</div>
-                <div class="mock-msg-body">Refactor the auth module to use JWT with refresh tokens instead of session cookies.</div>
-              </div>
-              <div class="mock-msg assistant">
-                <div class="mock-msg-avatar orange">C</div>
-                <div class="mock-msg-body">I'll refactor the auth system. Let me start by reading the current auth middleware and session management code.<br><br><span class="mock-tool">Read auth/middleware.ts</span><span class="mock-tool">Read auth/session.ts</span></div>
-              </div>
-              <div class="mock-msg assistant">
-                <div class="mock-msg-avatar orange">C</div>
-                <div class="mock-msg-body">I've updated 4 files to implement JWT auth with refresh token rotation. The access token expires in 15 minutes, and refresh tokens are stored in httpOnly cookies with 7-day expiry.<br><br><span class="mock-tool approved">Edit auth/middleware.ts ✓</span><span class="mock-tool approved">Write auth/jwt.ts ✓</span></div>
+          <div class="alttab-window" data-agent="api">
+            <div class="alttab-preview">
+              <div class="mini-window">
+                <div class="mini-bar"><span class="mini-dot r"></span><span class="mini-dot y"></span><span class="mini-dot g"></span></div>
+                <div class="mini-content">
+                  <div class="mini-line w70"></div>
+                  <div class="mini-line w50 blue"></div>
+                  <div class="mini-line w90"></div>
+                  <div class="mini-line w60 accent"></div>
+                </div>
               </div>
             </div>
-            <div class="mock-input">
-              <span>Send a message...</span>
-              <div class="mock-send">⌘↩</div>
+            <div class="alttab-label">
+              <span class="alttab-status running"></span>
+              API Endpoints
+            </div>
+          </div>
+          <div class="alttab-window" data-agent="test">
+            <div class="alttab-preview">
+              <div class="mini-window">
+                <div class="mini-bar"><span class="mini-dot r"></span><span class="mini-dot y"></span><span class="mini-dot g"></span></div>
+                <div class="mini-content">
+                  <div class="mini-line w80 green"></div>
+                  <div class="mini-line w80 green"></div>
+                  <div class="mini-line w80 green"></div>
+                  <div class="mini-line w80 orange"></div>
+                </div>
+              </div>
+            </div>
+            <div class="alttab-label">
+              <span class="alttab-status waiting"></span>
+              Test Suite
+            </div>
+          </div>
+          <div class="alttab-window" data-agent="docs">
+            <div class="alttab-preview">
+              <div class="mini-window">
+                <div class="mini-bar"><span class="mini-dot r"></span><span class="mini-dot y"></span><span class="mini-dot g"></span></div>
+                <div class="mini-content">
+                  <div class="mini-line w90"></div>
+                  <div class="mini-line w60"></div>
+                  <div class="mini-line w75"></div>
+                  <div class="mini-line w45"></div>
+                </div>
+              </div>
+            </div>
+            <div class="alttab-label">
+              <span class="alttab-status done"></span>
+              Docs Update
+            </div>
+          </div>
+          <div class="alttab-window" data-agent="deploy">
+            <div class="alttab-preview">
+              <div class="mini-window">
+                <div class="mini-bar"><span class="mini-dot r"></span><span class="mini-dot y"></span><span class="mini-dot g"></span></div>
+                <div class="mini-content">
+                  <div class="mini-line w50"></div>
+                  <div class="mini-line w70 blue"></div>
+                  <div class="mini-line w40"></div>
+                  <div class="mini-line w85"></div>
+                </div>
+              </div>
+            </div>
+            <div class="alttab-label">
+              <span class="alttab-status running"></span>
+              CI/CD Pipeline
+            </div>
+          </div>
+        </div>
+        <div class="alttab-hint">
+          <kbd>&#8997; Tab</kbd> to switch &middot; <kbd>&#8984; 1-9</kbd> for direct jump &middot; <kbd>&#8984; &#8679; A</kbd> for agent list
+        </div>
+      </div>
+
+      <!-- Expanded detail view -->
+      <div class="agent-detail-view">
+        <div class="window-frame large">
+          <div class="window-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="window-title">Auth Refactor — Claude Code</span>
+            <div class="window-tabs">
+              <span class="wtab active">Terminal</span>
+              <span class="wtab">Visualization</span>
+              <span class="wtab">Files Changed</span>
+            </div>
+          </div>
+          <div class="window-content-split">
+            <div class="terminal-pane">
+              <div class="term-line"><span class="term-prompt">$</span> claude "Refactor auth to use JWT with refresh tokens"</div>
+              <div class="term-line dim"><span class="term-tool">Read</span> src/auth/middleware.ts</div>
+              <div class="term-line dim"><span class="term-tool">Read</span> src/auth/session.ts</div>
+              <div class="term-line"><span class="term-agent">Claude</span> I'll refactor the auth module. Replacing session-based auth with JWT + refresh token rotation.</div>
+              <div class="term-line dim"><span class="term-tool ok">Edit</span> src/auth/middleware.ts <span class="term-ok">&#10003;</span></div>
+              <div class="term-line dim"><span class="term-tool ok">Write</span> src/auth/jwt.ts <span class="term-ok">&#10003;</span></div>
+              <div class="term-line dim"><span class="term-tool ok">Edit</span> src/auth/routes.ts <span class="term-ok">&#10003;</span></div>
+              <div class="term-line"><span class="term-agent">Claude</span> Done. 3 files modified. Access token: 15min, refresh token: 7 days with rotation.</div>
+              <div class="term-line typing"><span class="term-tool">Bash</span> npm test<span class="cursor">|</span></div>
+            </div>
+            <div class="status-sidebar">
+              <div class="status-block">
+                <div class="status-title">Progress</div>
+                <div class="progress-ring-container">
+                  <svg class="progress-ring" viewBox="0 0 80 80">
+                    <circle class="progress-bg" cx="40" cy="40" r="35" fill="none" stroke-width="4"/>
+                    <circle class="progress-fill" cx="40" cy="40" r="35" fill="none" stroke-width="4" stroke-dasharray="220" stroke-dashoffset="44"/>
+                  </svg>
+                  <span class="progress-text">80%</span>
+                </div>
+              </div>
+              <div class="status-block">
+                <div class="status-title">Files</div>
+                <div class="file-list">
+                  <div class="file-item modified">middleware.ts</div>
+                  <div class="file-item added">jwt.ts</div>
+                  <div class="file-item modified">routes.ts</div>
+                </div>
+              </div>
+              <div class="status-block">
+                <div class="status-title">Tokens</div>
+                <div class="token-count">14.2k used</div>
+              </div>
             </div>
           </div>
         </div>
@@ -131,69 +288,57 @@
     </div>
   </section>
 
-  <!-- Social proof -->
-  <section class="social-proof">
+  <!-- Live Visualizations -->
+  <section class="viz-section" id="visualizations">
     <div class="container">
-      <p class="proof-text">Built for developers who run AI agents all day.</p>
-      <div class="proof-stats">
-        <div class="stat">
-          <span class="stat-number">&lt;50ms</span>
-          <span class="stat-label">Search across 10,000+ messages</span>
+      <div class="section-header">
+        <div class="section-label">Live Visualizations</div>
+        <h2>Watch your agents<br><span class="gradient-text">think in real-time.</span></h2>
+        <p class="section-sub">Every agent gets a custom HTML/JS visualization panel. See file trees grow, test suites pass, data flow through pipelines — all rendered live as agents work.</p>
+      </div>
+
+      <div class="viz-grid">
+        <!-- Viz 1: File tree -->
+        <div class="viz-card">
+          <div class="viz-header">
+            <span class="viz-badge">File Explorer</span>
+            <span class="viz-live">LIVE</span>
+          </div>
+          <div class="viz-body">
+            <canvas id="fileTreeCanvas" width="400" height="280"></canvas>
+          </div>
+          <div class="viz-footer">Files created and modified by agents in real-time</div>
         </div>
-        <div class="stat">
-          <span class="stat-number">Native</span>
-          <span class="stat-label">SwiftUI, not Electron</span>
+
+        <!-- Viz 2: Test results -->
+        <div class="viz-card">
+          <div class="viz-header">
+            <span class="viz-badge">Test Runner</span>
+            <span class="viz-live">LIVE</span>
+          </div>
+          <div class="viz-body">
+            <div class="test-viz" id="testViz">
+              <!-- JS-generated test bars -->
+            </div>
+          </div>
+          <div class="viz-footer">Test suite results streaming as agents write code</div>
         </div>
-        <div class="stat">
-          <span class="stat-number">4</span>
-          <span class="stat-label">Agent providers supported</span>
+
+        <!-- Viz 3: Dependency graph -->
+        <div class="viz-card wide">
+          <div class="viz-header">
+            <span class="viz-badge">Agent Orchestration</span>
+            <span class="viz-live">LIVE</span>
+          </div>
+          <div class="viz-body">
+            <canvas id="orchestrationCanvas" width="840" height="320"></canvas>
+          </div>
+          <div class="viz-footer">See how agents coordinate, pass context, and resolve dependencies</div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Problem / Solution -->
-  <section class="problem" id="search">
-    <div class="container">
-      <div class="two-col">
-        <div class="col">
-          <h2 class="section-label">The problem</h2>
-          <h3>You can't find anything.</h3>
-          <p>Your AI agents produce thousands of messages, tool calls, and file diffs every day. When you need to find that one conversation where the agent fixed the auth bug — good luck scrolling through terminal history.</p>
-          <ul class="problem-list">
-            <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-              No search across sessions
-            </li>
-            <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-              Web apps feel sluggish
-            </li>
-            <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-              No OS integration
-            </li>
-          </ul>
-        </div>
-        <div class="col">
-          <h2 class="section-label accent">The solution</h2>
-          <h3>Search everything. Instantly.</h3>
-          <p>Simulta indexes every message, tool call, tool output, and file diff across all your sessions in real-time. Full-text search with BM25 ranking returns results in under 50ms.</p>
-          <ul class="problem-list">
-            <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Global search with <kbd>⌘⇧F</kbd>
-            </li>
-            <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Native macOS — fast, no Electron
-            </li>
-            <li>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Menu bar, Spotlight, notifications
-            </li>
-          </ul>
-        </div>
+      <div class="viz-cta">
+        <p>Build your own visualizations with the <strong>Simulta Viz SDK</strong> — drop in any HTML/JS/CSS to create custom dashboards for your workflows.</p>
       </div>
     </div>
   </section>
@@ -202,157 +347,118 @@
   <section class="features" id="features">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-label accent">Features</h2>
-        <h3>Everything you need to<br>manage your agents.</h3>
+        <div class="section-label">Features</div>
+        <h2>Everything you need to<br><span class="gradient-text">run AI at scale.</span></h2>
       </div>
+
       <div class="feature-grid">
         <div class="feature-card highlight">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
           </div>
-          <h4>Global Search</h4>
-          <p>Search across all sessions, messages, tool calls, tool outputs, and file diffs. FTS5 with BM25 ranking. Filter by project, provider, date, and message type. Results in under 50ms.</p>
+          <h4>Window Per Agent</h4>
+          <p>Every agent runs in its own native macOS window. Resize, tile, full-screen, drag between Spaces — just like any app. No cramming everything into one terminal.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
           </div>
-          <h4>Native macOS</h4>
-          <p>Built with SwiftUI for macOS 14+. No Electron. Instant launch, minimal memory, respects system appearance, and integrates with macOS features like Spotlight and Handoff.</p>
+          <h4>Alt-Tab Switching</h4>
+          <p>Press Option-Tab to cycle through agents exactly like macOS app switching. Your muscle memory works. Each window shows a live preview in the switcher.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
           </div>
-          <h4>Menu Bar</h4>
-          <p>Always-on menu bar icon shows pending approvals and unread counts. Approve or deny tool requests without switching to the app. Badge count keeps you informed.</p>
+          <h4>Custom Viz Panels</h4>
+          <p>Drop in any HTML/JS/CSS as a visualization. File trees, test dashboards, data flows, architecture diagrams — your agents' work rendered beautifully in real-time.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
-          </div>
-          <h4>Native Notifications</h4>
-          <p>Real macOS notifications when agents need approval. Not web push — native NSUserNotification. Works with Focus modes, notification grouping, and Do Not Disturb.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           </div>
           <h4>Multi-Provider</h4>
-          <p>Claude Code, Codex, Gemini, and OpenCode in one unified dashboard. Switch between providers seamlessly. Color-coded by provider for instant recognition.</p>
+          <p>Claude Code, Codex, Gemini CLI, Aider, OpenCode — run any CLI agent. Mix providers in the same workflow. Route tasks to the best model for the job.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
           </div>
-          <h4>Command Palette</h4>
-          <p>Press <kbd>⌘K</kbd> to jump to any session instantly. Fuzzy search by title or project name. <kbd>⌘1</kbd>-<kbd>⌘9</kbd> for direct session switching. Keyboard-first everything.</p>
+          <h4>Workflow Orchestration</h4>
+          <p>Define agent pipelines: Agent A writes code, Agent B writes tests, Agent C reviews. Dependencies resolve automatically. Fan-out for parallelism.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
           </div>
-          <h4>Real-Time Streaming</h4>
-          <p>Watch agent output stream in real-time via WebSocket. See thinking blocks, tool calls, and results as they happen. No polling, no refresh needed.</p>
+          <h4>Smart Notifications</h4>
+          <p>Native macOS notifications when agents need approval, finish tasks, or hit errors. Works with Focus modes. Approve tool requests from the notification banner.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
           </div>
-          <h4>Local-First</h4>
-          <p>Your data stays on your machine. The search index is local SQLite. No cloud sync, no telemetry, no accounts required. The server runs on localhost.</p>
+          <h4>Global Search</h4>
+          <p>Search across all agents, all sessions, all messages in under 50ms. FTS5 + BM25 ranking. Find that one conversation where the agent fixed the auth bug.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           </div>
-          <h4>Tool Approval</h4>
-          <p>One-click approve or deny tool requests. See the tool name, input, and context. Approve from the menu bar without opening the full app. Batch approve for trusted tools.</p>
+          <h4>Menu Bar Control</h4>
+          <p>Always-on menu bar shows active agents, pending approvals, and error counts. One-click approve/deny. Batch operations. Never miss a blocked agent.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>100% Local</h4>
+          <p>Everything stays on your machine. No cloud, no telemetry, no accounts. Your code, your agents, your data. The server runs on localhost. Period.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Search Demo -->
-  <section class="search-demo">
+  <!-- Scale Section -->
+  <section class="scale-section">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-label accent">Global Search</h2>
-        <h3>Find anything across<br>every session.</h3>
-        <p class="section-sub">Messages, tool calls, file diffs, outputs — all searchable in under 50ms.</p>
-      </div>
-      <div class="search-window">
-        <div class="window-bar">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-          <span class="window-title">Global Search</span>
+      <div class="scale-content">
+        <div class="scale-text">
+          <div class="section-label">Built for Scale</div>
+          <h2>From 1 agent<br>to <span class="gradient-text">50 agents.</span></h2>
+          <p>Most developers run one agent at a time. Power users run 5-10 across terminal panes. With Simulta, you run 50+ simultaneously — each in its own managed window with live visualization, automatic context passing, and orchestration.</p>
+          <div class="scale-features">
+            <div class="scale-feat">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Spawn agents from templates in 1 click
+            </div>
+            <div class="scale-feat">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Auto-tile windows across displays
+            </div>
+            <div class="scale-feat">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Aggregate status dashboard across all agents
+            </div>
+            <div class="scale-feat">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Resource-aware scheduling — never overload your machine
+            </div>
+          </div>
         </div>
-        <div class="search-content">
-          <div class="search-input-row">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-            <span class="search-query">JWT refresh token</span>
-            <span class="search-shortcut">⌘⇧F</span>
-          </div>
-          <div class="search-filters">
-            <span class="search-chip active">All Types</span>
-            <span class="search-chip">Messages</span>
-            <span class="search-chip">Tool Calls</span>
-            <span class="search-chip">File Diffs</span>
-          </div>
-          <div class="search-results">
-            <div class="search-result">
-              <div class="result-type message">Message</div>
-              <div class="result-body">
-                <div class="result-snippet">I've updated the auth middleware to use <mark>JWT</mark> <mark>refresh</mark> <mark>token</mark> rotation with 7-day expiry...</div>
-                <div class="result-meta">Auth refactor &middot; Claude &middot; 2 min ago</div>
-              </div>
-            </div>
-            <div class="search-result">
-              <div class="result-type tool">Tool Call</div>
-              <div class="result-body">
-                <div class="result-snippet">Edit auth/<mark>jwt</mark>.ts: Added generateRefresh<mark>Token</mark>() with HMAC-SHA256 signing...</div>
-                <div class="result-meta">Auth refactor &middot; Claude &middot; 3 min ago</div>
-              </div>
-            </div>
-            <div class="search-result">
-              <div class="result-type diff">File Diff</div>
-              <div class="result-body">
-                <div class="result-snippet">+ const <mark>refresh</mark><mark>Token</mark> = sign<mark>JWT</mark>({ userId, type: 'refresh' }, REFRESH_SECRET, '7d')</div>
-                <div class="result-meta">Auth refactor &middot; Claude &middot; 3 min ago</div>
-              </div>
-            </div>
-            <div class="search-result">
-              <div class="result-type message">Message</div>
-              <div class="result-body">
-                <div class="result-snippet">The <mark>refresh</mark> <mark>token</mark> endpoint should validate the old <mark>token</mark> before issuing a new <mark>JWT</mark>...</div>
-                <div class="result-meta">API security review &middot; Codex &middot; 1 day ago</div>
-              </div>
-            </div>
-          </div>
-          <div class="search-status">4 results in 12ms</div>
+        <div class="scale-visual">
+          <canvas id="scaleCanvas" width="480" height="380"></canvas>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Pricing -->
-  <!--
-    STRIPE CHECKOUT INTEGRATION
-    ===========================
-    Each pricing button links to a Stripe Payment Link. To configure:
-    1. Create Payment Links in your Stripe Dashboard (https://dashboard.stripe.com/payment-links)
-    2. Replace the placeholder URLs below with your actual Stripe Payment Link URLs
-    3. Each link should have success_url=https://simulta.app/success.html and
-       cancel_url=https://simulta.app/cancel.html configured in Stripe
-    4. Set up the webhook endpoint at /api/stripe/webhook for conversion tracking
-  -->
   <section class="pricing" id="pricing">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-label accent">Pricing</h2>
-        <h3>Simple, fair pricing.</h3>
-        <p class="section-sub">One app. All features. No tiers, no feature gates.</p>
+        <div class="section-label">Pricing</div>
+        <h2>Simple pricing.<br><span class="gradient-text">Unlimited agents.</span></h2>
       </div>
       <div class="pricing-urgency">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -365,28 +471,14 @@
             <span class="currency">$</span><span class="amount">15</span><span class="period">/mo</span>
           </div>
           <p class="pricing-desc">Full access, cancel anytime.</p>
-          <ul class="pricing-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              All features included
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Unlimited sessions
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Unlimited search
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              All future updates
-            </li>
+          <ul class="pricing-features-list">
+            <li>Unlimited concurrent agents</li>
+            <li>All visualization panels</li>
+            <li>Workflow orchestration</li>
+            <li>All future updates</li>
           </ul>
-          <!-- STRIPE: Replace href with your Stripe Payment Link for Monthly ($15/mo recurring) -->
-          <a href="https://buy.stripe.com/REPLACE_WITH_MONTHLY_LINK" class="btn btn-outline btn-block" data-plan="monthly" data-price="15">Start free trial</a>
+          <a href="#" class="btn btn-outline btn-block">Start free trial</a>
         </div>
-
         <div class="pricing-card popular">
           <div class="popular-badge">Most Popular</div>
           <div class="pricing-name">Annual</div>
@@ -394,67 +486,31 @@
             <span class="currency">$</span><span class="amount">119</span><span class="period">/yr</span>
           </div>
           <p class="pricing-desc">Save 34% vs monthly.</p>
-          <ul class="pricing-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              All features included
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Unlimited sessions
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Unlimited search
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              All future updates
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Priority support
-            </li>
+          <ul class="pricing-features-list">
+            <li>Unlimited concurrent agents</li>
+            <li>All visualization panels</li>
+            <li>Workflow orchestration</li>
+            <li>All future updates</li>
+            <li>Priority support</li>
           </ul>
-          <!-- STRIPE: Replace href with your Stripe Payment Link for Annual ($119/yr recurring) -->
-          <a href="https://buy.stripe.com/REPLACE_WITH_ANNUAL_LINK" class="btn btn-primary btn-block" data-plan="annual" data-price="119">Start free trial</a>
+          <a href="#" class="btn btn-primary btn-block">Start free trial</a>
         </div>
-
         <div class="pricing-card lifetime">
           <div class="lifetime-badge">Best Value</div>
           <div class="pricing-name">Lifetime</div>
           <div class="pricing-price">
-            <span class="currency">$</span><span class="amount">149</span><span class="period">once</span>
+            <span class="currency">$</span><span class="amount">199</span><span class="period">once</span>
           </div>
-          <p class="pricing-desc"><s>$279</s> &mdash; 47% off launch price.</p>
-          <ul class="pricing-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              All features included
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Unlimited sessions
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Unlimited search
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              All future updates — forever
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Priority support
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              Pay once, own forever
-            </li>
+          <p class="pricing-desc"><s>$399</s> &mdash; 50% off launch price.</p>
+          <ul class="pricing-features-list">
+            <li>Unlimited concurrent agents</li>
+            <li>All visualization panels</li>
+            <li>Workflow orchestration</li>
+            <li>All future updates — forever</li>
+            <li>Priority support</li>
+            <li>Viz SDK early access</li>
           </ul>
-          <!-- STRIPE: Replace href with your Stripe Payment Link for Lifetime ($149 one-time) -->
-          <a href="https://buy.stripe.com/REPLACE_WITH_LIFETIME_LINK" class="btn btn-accent btn-block" data-plan="lifetime" data-price="149">Buy lifetime license</a>
+          <a href="#" class="btn btn-accent btn-block">Buy lifetime license</a>
         </div>
       </div>
       <p class="pricing-note">All plans include a 14-day free trial. No credit card required to start.</p>
@@ -469,41 +525,41 @@
   <section class="faq" id="faq">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-label accent">FAQ</h2>
-        <h3>Common questions.</h3>
+        <div class="section-label">FAQ</div>
+        <h2>Questions &amp; answers.</h2>
       </div>
       <div class="faq-grid">
         <details class="faq-item">
           <summary>What agents does Simulta support?</summary>
-          <p>Claude Code, Codex CLI, Gemini, and OpenCode. We add new providers as they become available. All providers work with the same search index and unified UI.</p>
+          <p>Any CLI-based AI agent: Claude Code, Codex CLI, Gemini CLI, Aider, OpenCode, and any custom agent that runs in a terminal. If it has a CLI, Simulta can manage it.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How is this different from tmux or terminal tabs?</summary>
+          <p>Simulta gives each agent a native macOS window with live visualization, status tracking, progress rings, global search across all sessions, Alt-Tab switching with previews, orchestration pipelines, and a menu bar for approvals. It's purpose-built for AI agents — not a generic terminal multiplexer.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do the visualizations work?</summary>
+          <p>Each agent window has a visualization panel that renders HTML/JS/CSS in real-time. Built-in viz types include file tree, test runner, data flow, and architecture graph. You can also create custom visualizations with the Viz SDK — drop in any HTML file and it receives a stream of agent events.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How many agents can I run simultaneously?</summary>
+          <p>Tested up to 50+ concurrent agents on a MacBook Pro M3 Max with 36GB RAM. The actual limit depends on your hardware and what each agent is doing. Simulta's resource scheduler prevents overload.</p>
         </details>
         <details class="faq-item">
           <summary>Is my data sent to any server?</summary>
-          <p>No. Simulta runs entirely on your machine. The search index is a local SQLite database. The server runs on localhost. There is no cloud sync, no telemetry, and no accounts required. Your session data never leaves your computer.</p>
+          <p>No. Simulta runs entirely on your machine. The search index is a local SQLite database. There is no cloud sync, no telemetry, and no accounts required. Your code and agent sessions never leave your computer.</p>
         </details>
         <details class="faq-item">
-          <summary>How does the search work?</summary>
-          <p>Simulta uses SQLite FTS5 with BM25 ranking. It watches your session JSONL files and indexes every message, tool call, tool output, and file diff in real-time. Queries return in under 50ms even with tens of thousands of documents. You can filter by project, provider, message type, and date range.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Why native instead of a web app?</summary>
-          <p>Native means instant launch, minimal memory usage (typically under 80MB), real macOS notifications that work with Focus modes, menu bar presence, keyboard shortcuts that don't conflict with the browser, and proper system integration. Electron apps can't match this.</p>
+          <summary>Can agents communicate with each other?</summary>
+          <p>Yes. Simulta's orchestration engine lets you define workflows where agents pass context to each other. Agent A finishes code, Agent B receives those files for testing, Agent C reviews the PR. You define the pipeline, Simulta handles the wiring.</p>
         </details>
         <details class="faq-item">
           <summary>What macOS version do I need?</summary>
-          <p>macOS 14 (Sonoma) or later. Works on both Apple Silicon and Intel Macs.</p>
+          <p>macOS 14 (Sonoma) or later. Works on both Apple Silicon and Intel Macs. Optimized for Apple Silicon.</p>
         </details>
         <details class="faq-item">
-          <summary>Can I use it alongside Yep Anywhere?</summary>
-          <p>Yes. Simulta connects to the same session files that Yep Anywhere reads. You can use both simultaneously — Simulta on your Mac, Yep Anywhere on your phone. They don't conflict.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What does "lifetime" mean?</summary>
-          <p>Pay once, use forever. You get all current features and all future updates for the lifetime of the product. No recurring charges, no expiration.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Is there a refund policy?</summary>
-          <p>Yes. If you're not satisfied within 30 days of purchase, we'll refund you in full. No questions asked.</p>
+          <summary>Is there a Windows or Linux version?</summary>
+          <p>Not yet. Simulta is macOS-native (SwiftUI) to deliver the best possible experience. We're exploring cross-platform options but no timeline yet.</p>
         </details>
       </div>
     </div>
@@ -512,11 +568,11 @@
   <!-- CTA -->
   <section class="cta">
     <div class="container">
-      <h2>Stop scrolling terminal history.<br><span class="gradient-text">Start searching.</span></h2>
-      <p>Download Simulta and take control of your AI agents.</p>
+      <h2>Stop managing agents<br>in terminal tabs.<br><span class="gradient-text">Orchestrate them.</span></h2>
+      <p>Download Simulta and run AI at a scale you didn't think was possible.</p>
       <div class="hero-actions">
         <a href="#pricing" class="btn btn-primary btn-lg">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
           Download for macOS
         </a>
       </div>
@@ -529,12 +585,13 @@
       <div class="footer-brand">
         <span class="logo-icon">⚡</span>
         <span class="logo-text">Simulta</span>
-        <span class="footer-tagline">Native agent supervisor.</span>
+        <span class="footer-tagline">Orchestrate agentic AI at scale.</span>
       </div>
       <div class="footer-links">
+        <a href="#how-it-works">How It Works</a>
         <a href="#features">Features</a>
+        <a href="#visualizations">Visualizations</a>
         <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
         <a href="mailto:hello@simulta.app">Contact</a>
       </div>
       <div class="footer-legal">
@@ -543,6 +600,7 @@
     </div>
   </footer>
 
+  <script src="visualizations.js"></script>
   <script>
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -551,13 +609,13 @@
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          document.querySelector('.nav-links')?.classList.remove('open');
+          document.getElementById('navLinks')?.classList.remove('open');
         }
       });
     });
 
     // Nav background on scroll
-    const nav = document.querySelector('.nav');
+    const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 20);
     });
@@ -572,6 +630,26 @@
         }
       });
     });
+
+    // Alt-Tab strip auto-cycle
+    const strip = document.getElementById('alttabStrip');
+    const windows = strip.querySelectorAll('.alttab-window');
+    let currentWindow = 0;
+    setInterval(() => {
+      windows[currentWindow].classList.remove('active');
+      currentWindow = (currentWindow + 1) % windows.length;
+      windows[currentWindow].classList.add('active');
+    }, 3000);
+
+    // Agent count animation
+    const countEl = document.getElementById('agentCount');
+    let count = 0;
+    const targetCount = 47;
+    const countInterval = setInterval(() => {
+      count++;
+      countEl.textContent = count;
+      if (count >= targetCount) clearInterval(countInterval);
+    }, 40);
   </script>
 </body>
 </html>
