@@ -1,0 +1,31 @@
+name: simulta-app
+networks:
+  coolify:
+    external: true
+services:
+  web:
+    build: .
+    container_name: simulta-app-web
+    restart: unless-stopped
+    networks:
+      - coolify
+    labels:
+      - traefik.enable=true
+      # HTTP router - redirect to HTTPS
+      - traefik.http.routers.simulta-app-http.rule=Host(`simulta.app`) || Host(`www.simulta.app`)
+      - traefik.http.routers.simulta-app-http.entrypoints=http
+      - traefik.http.routers.simulta-app-http.middlewares=simulta-app-redirect-https
+      - traefik.http.middlewares.simulta-app-redirect-https.redirectscheme.scheme=https
+      - traefik.http.middlewares.simulta-app-redirect-https.redirectscheme.permanent=true
+      # HTTPS router
+      - traefik.http.routers.simulta-app-https.rule=Host(`simulta.app`) || Host(`www.simulta.app`)
+      - traefik.http.routers.simulta-app-https.entrypoints=https
+      - traefik.http.routers.simulta-app-https.tls=true
+      - traefik.http.routers.simulta-app-https.tls.certresolver=letsencrypt
+      # www redirect to apex
+      - traefik.http.routers.simulta-app-https.middlewares=simulta-app-redirect-www
+      - traefik.http.middlewares.simulta-app-redirect-www.redirectregex.regex=^https://www\.simulta\.app/(.*)
+      - traefik.http.middlewares.simulta-app-redirect-www.redirectregex.replacement=https://simulta.app/$${1}
+      - traefik.http.middlewares.simulta-app-redirect-www.redirectregex.permanent=true
+      # Service
+      - traefik.http.services.simulta-app.loadbalancer.server.port=80

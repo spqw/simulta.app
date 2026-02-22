@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Simulta — Purchase Complete</title>
+  <meta name="description" content="Your Simulta purchase is complete. Download the app and get started.">
+  <!-- Prevent search engines from indexing the success page -->
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Open Graph for link previews (Stripe recommends these) -->
+  <meta property="og:title" content="Simulta — Purchase Complete">
+  <meta property="og:description" content="Thank you for purchasing Simulta. Download your native macOS agent supervisor.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://simulta.app/success.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav scrolled">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Simulta</span>
+      </a>
+      <div class="nav-links">
+        <a href="/#features">Features</a>
+        <a href="/#search">Search</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+      <div class="nav-actions">
+        <a href="mailto:hello@simulta.app" class="btn btn-sm btn-ghost">Support</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Success Content -->
+  <section class="post-purchase">
+    <div class="container">
+      <div class="success-icon">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+          <path d="M22 4L12 14.01l-3-3"/>
+        </svg>
+      </div>
+      <h1>You're in.</h1>
+      <p class="success-sub">Your purchase is complete. Welcome to Simulta.</p>
+
+      <div class="next-steps">
+        <h2>Get started in 3 steps</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Download</h3>
+            <p>Grab the latest version of Simulta for macOS.</p>
+            <!--
+              TODO: Replace with actual DMG download URL.
+              This should point to a hosted DMG file, GitHub release, or
+              a signed notarized app bundle.
+            -->
+            <a href="#" class="btn btn-primary btn-block" id="download-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Download for macOS
+            </a>
+            <span class="step-note">macOS 14+ &middot; Apple Silicon & Intel</span>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Install & Launch</h3>
+            <p>Open the DMG, drag Simulta to Applications, and launch it.</p>
+            <div class="install-steps">
+              <div class="install-step">
+                <span class="install-icon">📦</span>
+                <span>Open <strong>Simulta.dmg</strong></span>
+              </div>
+              <div class="install-step">
+                <span class="install-icon">📁</span>
+                <span>Drag to <strong>Applications</strong></span>
+              </div>
+              <div class="install-step">
+                <span class="install-icon">🚀</span>
+                <span>Launch from <strong>Launchpad</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Start Searching</h3>
+            <p>Simulta auto-indexes your agent sessions. Use the global search to find anything.</p>
+            <div class="shortcut-list">
+              <div class="shortcut-item">
+                <kbd>⌘⇧F</kbd>
+                <span>Global search</span>
+              </div>
+              <div class="shortcut-item">
+                <kbd>⌘K</kbd>
+                <span>Command palette</span>
+              </div>
+              <div class="shortcut-item">
+                <kbd>⌘1-9</kbd>
+                <span>Switch sessions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="success-help">
+        <h2>Need help?</h2>
+        <p>We're here for you. Reach out anytime.</p>
+        <div class="help-links">
+          <a href="mailto:hello@simulta.app" class="btn btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            Email Support
+          </a>
+          <a href="/" class="btn btn-ghost">Back to Homepage</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Simulta</span>
+        <span class="footer-tagline">Native agent supervisor.</span>
+      </div>
+      <div class="footer-links">
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="mailto:hello@simulta.app">Contact</a>
+      </div>
+      <div class="footer-legal">
+        &copy; 2026 simulta.app &middot; All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Parse Stripe session_id from URL if present (useful for server-side verification)
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id');
+    if (sessionId) {
+      // The session_id can be used to verify the purchase server-side
+      // or to display order details via the Stripe API
+      console.log('Stripe checkout session:', sessionId);
+    }
+  </script>
+</body>
+</html>

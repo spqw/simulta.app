@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulta — Native macOS Agent Supervisor with Global Search</title>
+  <meta name="description" content="A native macOS app to supervise, search, and manage your Claude Code and AI coding agents. Menu bar, Spotlight, keyboard-first. Search everything instantly.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Simulta</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#search">Search</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-actions">
+        <a href="#pricing" class="btn btn-sm btn-primary">Get Started</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">Native macOS App</div>
+      <h1>Your AI agents.<br>One native app.<br><span class="gradient-text">Searchable.</span></h1>
+      <p class="hero-sub">Simulta is a native macOS supervisor for Claude Code, Codex, and Gemini agents. Menu bar presence, native notifications, keyboard-first UX, and the global search that's been missing.</p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn btn-primary btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download for macOS
+        </a>
+        <a href="#features" class="btn btn-ghost btn-lg">See what's inside</a>
+      </div>
+      <p class="hero-note">macOS 14+ &middot; Apple Silicon & Intel &middot; Free trial, no card required</p>
+    </div>
+    <div class="hero-visual">
+      <div class="window-frame">
+        <div class="window-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="window-title">Simulta</span>
+        </div>
+        <div class="window-content">
+          <div class="mock-sidebar">
+            <div class="mock-search-bar">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              <span>Search all sessions...</span>
+            </div>
+            <div class="mock-filter-bar">
+              <span class="mock-filter active">All</span>
+              <span class="mock-filter">Inbox</span>
+              <span class="mock-filter">Active</span>
+              <span class="mock-filter">Starred</span>
+            </div>
+            <div class="mock-session active">
+              <span class="mock-status green"></span>
+              <div>
+                <div class="mock-title">Auth refactor</div>
+                <div class="mock-meta"><span class="mock-tag orange">Claude</span> my-saas-app</div>
+              </div>
+              <span class="mock-time">2m</span>
+            </div>
+            <div class="mock-session">
+              <span class="mock-status orange"></span>
+              <div>
+                <div class="mock-title">Fix checkout flow</div>
+                <div class="mock-meta"><span class="mock-tag orange">Claude</span> e-commerce</div>
+              </div>
+              <span class="mock-time">8m</span>
+            </div>
+            <div class="mock-session">
+              <span class="mock-status gray"></span>
+              <div>
+                <div class="mock-title">DB migration script</div>
+                <div class="mock-meta"><span class="mock-tag green">Codex</span> backend-api</div>
+              </div>
+              <span class="mock-time">1h</span>
+            </div>
+            <div class="mock-session">
+              <span class="mock-status blue"></span>
+              <div>
+                <div class="mock-title">Landing page redesign</div>
+                <div class="mock-meta"><span class="mock-tag blue">Gemini</span> marketing</div>
+              </div>
+              <span class="mock-time">3h</span>
+            </div>
+          </div>
+          <div class="mock-detail">
+            <div class="mock-detail-header">
+              <strong>Auth refactor</strong>
+              <span class="mock-detail-meta">Claude &middot; my-saas-app &middot; Active</span>
+            </div>
+            <div class="mock-messages">
+              <div class="mock-msg user">
+                <div class="mock-msg-avatar blue">Y</div>
+                <div class="mock-msg-body">Refactor the auth module to use JWT with refresh tokens instead of session cookies.</div>
+              </div>
+              <div class="mock-msg assistant">
+                <div class="mock-msg-avatar orange">C</div>
+                <div class="mock-msg-body">I'll refactor the auth system. Let me start by reading the current auth middleware and session management code.<br><br><span class="mock-tool">Read auth/middleware.ts</span><span class="mock-tool">Read auth/session.ts</span></div>
+              </div>
+              <div class="mock-msg assistant">
+                <div class="mock-msg-avatar orange">C</div>
+                <div class="mock-msg-body">I've updated 4 files to implement JWT auth with refresh token rotation. The access token expires in 15 minutes, and refresh tokens are stored in httpOnly cookies with 7-day expiry.<br><br><span class="mock-tool approved">Edit auth/middleware.ts ✓</span><span class="mock-tool approved">Write auth/jwt.ts ✓</span></div>
+              </div>
+            </div>
+            <div class="mock-input">
+              <span>Send a message...</span>
+              <div class="mock-send">⌘↩</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social proof -->
+  <section class="social-proof">
+    <div class="container">
+      <p class="proof-text">Built for developers who run AI agents all day.</p>
+      <div class="proof-stats">
+        <div class="stat">
+          <span class="stat-number">&lt;50ms</span>
+          <span class="stat-label">Search across 10,000+ messages</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">Native</span>
+          <span class="stat-label">SwiftUI, not Electron</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Agent providers supported</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem / Solution -->
+  <section class="problem" id="search">
+    <div class="container">
+      <div class="two-col">
+        <div class="col">
+          <h2 class="section-label">The problem</h2>
+          <h3>You can't find anything.</h3>
+          <p>Your AI agents produce thousands of messages, tool calls, and file diffs every day. When you need to find that one conversation where the agent fixed the auth bug — good luck scrolling through terminal history.</p>
+          <ul class="problem-list">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              No search across sessions
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              Web apps feel sluggish
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              No OS integration
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <h2 class="section-label accent">The solution</h2>
+          <h3>Search everything. Instantly.</h3>
+          <p>Simulta indexes every message, tool call, tool output, and file diff across all your sessions in real-time. Full-text search with BM25 ranking returns results in under 50ms.</p>
+          <ul class="problem-list">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Global search with <kbd>⌘⇧F</kbd>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Native macOS — fast, no Electron
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Menu bar, Spotlight, notifications
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-label accent">Features</h2>
+        <h3>Everything you need to<br>manage your agents.</h3>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card highlight">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <h4>Global Search</h4>
+          <p>Search across all sessions, messages, tool calls, tool outputs, and file diffs. FTS5 with BM25 ranking. Filter by project, provider, date, and message type. Results in under 50ms.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h4>Native macOS</h4>
+          <p>Built with SwiftUI for macOS 14+. No Electron. Instant launch, minimal memory, respects system appearance, and integrates with macOS features like Spotlight and Handoff.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h4>Menu Bar</h4>
+          <p>Always-on menu bar icon shows pending approvals and unread counts. Approve or deny tool requests without switching to the app. Badge count keeps you informed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+          </div>
+          <h4>Native Notifications</h4>
+          <p>Real macOS notifications when agents need approval. Not web push — native NSUserNotification. Works with Focus modes, notification grouping, and Do Not Disturb.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h4>Multi-Provider</h4>
+          <p>Claude Code, Codex, Gemini, and OpenCode in one unified dashboard. Switch between providers seamlessly. Color-coded by provider for instant recognition.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          </div>
+          <h4>Command Palette</h4>
+          <p>Press <kbd>⌘K</kbd> to jump to any session instantly. Fuzzy search by title or project name. <kbd>⌘1</kbd>-<kbd>⌘9</kbd> for direct session switching. Keyboard-first everything.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h4>Real-Time Streaming</h4>
+          <p>Watch agent output stream in real-time via WebSocket. See thinking blocks, tool calls, and results as they happen. No polling, no refresh needed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Local-First</h4>
+          <p>Your data stays on your machine. The search index is local SQLite. No cloud sync, no telemetry, no accounts required. The server runs on localhost.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h4>Tool Approval</h4>
+          <p>One-click approve or deny tool requests. See the tool name, input, and context. Approve from the menu bar without opening the full app. Batch approve for trusted tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Demo -->
+  <section class="search-demo">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-label accent">Global Search</h2>
+        <h3>Find anything across<br>every session.</h3>
+        <p class="section-sub">Messages, tool calls, file diffs, outputs — all searchable in under 50ms.</p>
+      </div>
+      <div class="search-window">
+        <div class="window-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="window-title">Global Search</span>
+        </div>
+        <div class="search-content">
+          <div class="search-input-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span class="search-query">JWT refresh token</span>
+            <span class="search-shortcut">⌘⇧F</span>
+          </div>
+          <div class="search-filters">
+            <span class="search-chip active">All Types</span>
+            <span class="search-chip">Messages</span>
+            <span class="search-chip">Tool Calls</span>
+            <span class="search-chip">File Diffs</span>
+          </div>
+          <div class="search-results">
+            <div class="search-result">
+              <div class="result-type message">Message</div>
+              <div class="result-body">
+                <div class="result-snippet">I've updated the auth middleware to use <mark>JWT</mark> <mark>refresh</mark> <mark>token</mark> rotation with 7-day expiry...</div>
+                <div class="result-meta">Auth refactor &middot; Claude &middot; 2 min ago</div>
+              </div>
+            </div>
+            <div class="search-result">
+              <div class="result-type tool">Tool Call</div>
+              <div class="result-body">
+                <div class="result-snippet">Edit auth/<mark>jwt</mark>.ts: Added generateRefresh<mark>Token</mark>() with HMAC-SHA256 signing...</div>
+                <div class="result-meta">Auth refactor &middot; Claude &middot; 3 min ago</div>
+              </div>
+            </div>
+            <div class="search-result">
+              <div class="result-type diff">File Diff</div>
+              <div class="result-body">
+                <div class="result-snippet">+ const <mark>refresh</mark><mark>Token</mark> = sign<mark>JWT</mark>({ userId, type: 'refresh' }, REFRESH_SECRET, '7d')</div>
+                <div class="result-meta">Auth refactor &middot; Claude &middot; 3 min ago</div>
+              </div>
+            </div>
+            <div class="search-result">
+              <div class="result-type message">Message</div>
+              <div class="result-body">
+                <div class="result-snippet">The <mark>refresh</mark> <mark>token</mark> endpoint should validate the old <mark>token</mark> before issuing a new <mark>JWT</mark>...</div>
+                <div class="result-meta">API security review &middot; Codex &middot; 1 day ago</div>
+              </div>
+            </div>
+          </div>
+          <div class="search-status">4 results in 12ms</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <!--
+    STRIPE CHECKOUT INTEGRATION
+    ===========================
+    Each pricing button links to a Stripe Payment Link. To configure:
+    1. Create Payment Links in your Stripe Dashboard (https://dashboard.stripe.com/payment-links)
+    2. Replace the placeholder URLs below with your actual Stripe Payment Link URLs
+    3. Each link should have success_url=https://simulta.app/success.html and
+       cancel_url=https://simulta.app/cancel.html configured in Stripe
+    4. Set up the webhook endpoint at /api/stripe/webhook for conversion tracking
+  -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-label accent">Pricing</h2>
+        <h3>Simple, fair pricing.</h3>
+        <p class="section-sub">One app. All features. No tiers, no feature gates.</p>
+      </div>
+      <div class="pricing-urgency">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Launch pricing &mdash; locks in your rate forever
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-name">Monthly</div>
+          <div class="pricing-price">
+            <span class="currency">$</span><span class="amount">15</span><span class="period">/mo</span>
+          </div>
+          <p class="pricing-desc">Full access, cancel anytime.</p>
+          <ul class="pricing-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              All features included
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Unlimited sessions
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Unlimited search
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              All future updates
+            </li>
+          </ul>
+          <!-- STRIPE: Replace href with your Stripe Payment Link for Monthly ($15/mo recurring) -->
+          <a href="https://buy.stripe.com/REPLACE_WITH_MONTHLY_LINK" class="btn btn-outline btn-block" data-plan="monthly" data-price="15">Start free trial</a>
+        </div>
+
+        <div class="pricing-card popular">
+          <div class="popular-badge">Most Popular</div>
+          <div class="pricing-name">Annual</div>
+          <div class="pricing-price">
+            <span class="currency">$</span><span class="amount">119</span><span class="period">/yr</span>
+          </div>
+          <p class="pricing-desc">Save 34% vs monthly.</p>
+          <ul class="pricing-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              All features included
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Unlimited sessions
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Unlimited search
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              All future updates
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Priority support
+            </li>
+          </ul>
+          <!-- STRIPE: Replace href with your Stripe Payment Link for Annual ($119/yr recurring) -->
+          <a href="https://buy.stripe.com/REPLACE_WITH_ANNUAL_LINK" class="btn btn-primary btn-block" data-plan="annual" data-price="119">Start free trial</a>
+        </div>
+
+        <div class="pricing-card lifetime">
+          <div class="lifetime-badge">Best Value</div>
+          <div class="pricing-name">Lifetime</div>
+          <div class="pricing-price">
+            <span class="currency">$</span><span class="amount">149</span><span class="period">once</span>
+          </div>
+          <p class="pricing-desc"><s>$279</s> &mdash; 47% off launch price.</p>
+          <ul class="pricing-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              All features included
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Unlimited sessions
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Unlimited search
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              All future updates — forever
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Priority support
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Pay once, own forever
+            </li>
+          </ul>
+          <!-- STRIPE: Replace href with your Stripe Payment Link for Lifetime ($149 one-time) -->
+          <a href="https://buy.stripe.com/REPLACE_WITH_LIFETIME_LINK" class="btn btn-accent btn-block" data-plan="lifetime" data-price="149">Buy lifetime license</a>
+        </div>
+      </div>
+      <p class="pricing-note">All plans include a 14-day free trial. No credit card required to start.</p>
+      <p class="pricing-guarantee">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        30-day money-back guarantee &middot; Secure checkout via Stripe
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-label accent">FAQ</h2>
+        <h3>Common questions.</h3>
+      </div>
+      <div class="faq-grid">
+        <details class="faq-item">
+          <summary>What agents does Simulta support?</summary>
+          <p>Claude Code, Codex CLI, Gemini, and OpenCode. We add new providers as they become available. All providers work with the same search index and unified UI.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is my data sent to any server?</summary>
+          <p>No. Simulta runs entirely on your machine. The search index is a local SQLite database. The server runs on localhost. There is no cloud sync, no telemetry, and no accounts required. Your session data never leaves your computer.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How does the search work?</summary>
+          <p>Simulta uses SQLite FTS5 with BM25 ranking. It watches your session JSONL files and indexes every message, tool call, tool output, and file diff in real-time. Queries return in under 50ms even with tens of thousands of documents. You can filter by project, provider, message type, and date range.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Why native instead of a web app?</summary>
+          <p>Native means instant launch, minimal memory usage (typically under 80MB), real macOS notifications that work with Focus modes, menu bar presence, keyboard shortcuts that don't conflict with the browser, and proper system integration. Electron apps can't match this.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What macOS version do I need?</summary>
+          <p>macOS 14 (Sonoma) or later. Works on both Apple Silicon and Intel Macs.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use it alongside Yep Anywhere?</summary>
+          <p>Yes. Simulta connects to the same session files that Yep Anywhere reads. You can use both simultaneously — Simulta on your Mac, Yep Anywhere on your phone. They don't conflict.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What does "lifetime" mean?</summary>
+          <p>Pay once, use forever. You get all current features and all future updates for the lifetime of the product. No recurring charges, no expiration.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is there a refund policy?</summary>
+          <p>Yes. If you're not satisfied within 30 days of purchase, we'll refund you in full. No questions asked.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Stop scrolling terminal history.<br><span class="gradient-text">Start searching.</span></h2>
+      <p>Download Simulta and take control of your AI agents.</p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn btn-primary btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download for macOS
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Simulta</span>
+        <span class="footer-tagline">Native agent supervisor.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="mailto:hello@simulta.app">Contact</a>
+      </div>
+      <div class="footer-legal">
+        &copy; 2026 simulta.app &middot; All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.querySelector('.nav-links')?.classList.remove('open');
+        }
+      });
+    });
+
+    // Nav background on scroll
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('toggle', () => {
+        if (item.open) {
+          document.querySelectorAll('.faq-item').forEach(other => {
+            if (other !== item) other.open = false;
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
